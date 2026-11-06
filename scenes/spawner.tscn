@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dekcs45b1g1ol"]
+
+[ext_resource type="Script" uid="uid://dhp7n4cmnl2nr" path="res://scripts/spawner.gd" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://dcxrj3hot3rlm" path="res://scenes/enemy.tscn" id="2_ik2nu"]
+
+[node name="Spawner" type="Node2D" unique_id=648354157 node_paths=PackedStringArray("markers")]
+script = ExtResource("1_2vbf6")
+scenes_to_spawn = Array[PackedScene]([ExtResource("2_ik2nu")])
+markers = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5"), NodePath("Marker2D6"), NodePath("Marker2D7"), NodePath("Marker2D8"), NodePath("Marker2D9"), NodePath("Marker2D10"), NodePath("Marker2D11"), NodePath("Marker2D12"), NodePath("Marker2D12"), NodePath("Marker2D14"), NodePath("Marker2D15")]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=167405554]
+position = Vector2(-1000, -400)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1782946168]
+position = Vector2(-800, -400)
+
+[node name="Marker2D3" type="Marker2D" parent="." unique_id=1520751888]
+position = Vector2(-600, -400)
+
+[node name="Marker2D4" type="Marker2D" parent="." unique_id=1851966713]
+position = Vector2(-400, -400)
+
+[node name="Marker2D5" type="Marker2D" parent="." unique_id=1462460412]
+position = Vector2(-200, -400)
+
+[node name="Marker2D6" type="Marker2D" parent="." unique_id=945346427]
+position = Vector2(200, -400)
+
+[node name="Marker2D7" type="Marker2D" parent="." unique_id=954855975]
+position = Vector2(400, -400)
+
+[node name="Marker2D8" type="Marker2D" parent="." unique_id=1276240435]
+position = Vector2(600, -400)
+
+[node name="Marker2D9" type="Marker2D" parent="." unique_id=1200515262]
+position = Vector2(800, -400)
+
+[node name="Marker2D10" type="Marker2D" parent="." unique_id=37264032]
+position = Vector2(1000, -400)
+
+[node name="Marker2D11" type="Marker2D" parent="." unique_id=1191182627]
+position = Vector2(1200, -400)
+
+[node name="Marker2D12" type="Marker2D" parent="." unique_id=72489965]
+position = Vector2(1400, -400)
+
+[node name="Marker2D13" type="Marker2D" parent="." unique_id=701729973]
+position = Vector2(-1200, -400)
+
+[node name="Marker2D14" type="Marker2D" parent="." unique_id=63930588]
+position = Vector2(-1400, -400)
+
+[node name="Marker2D15" type="Marker2D" parent="." unique_id=611005972]
+position = Vector2(-1600, -400)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b686g3gx3dltj"]
+
+[ext_resource type="Script" uid="uid://bkt25hwfpiq2v" path="res://scripts/ground.gd" id="1_pybca"]
+
+[node name="Ground_StaticBody" type="StaticBody2D" unique_id=515524034 groups=["Ground"]]
+script = ExtResource("1_pybca")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2060525435]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1637643216]
+color = Color(0.47255683, 0.26866508, 0.05535508, 1)
+polygon = PackedVector2Array(-385.21466, 529.61426, -2, 587, 2843.6985, 586.4398, 3445.7537, 354.60693, 3428.6648, -53.624756, 3214.106, -104.89111, 2919.7993, -42.2323, 2653.9739, 9.034058, 2326.0303, -63.123352, 2255.2917, -106.74542, 2163.3315, -39.543823, 2045, 6, 1940.4215, 62.691833, 1813.2052, -5.663208, 1660.6174, -65.697205, 1548.4187, -51.888123, 1435.354, 36.109314, 1306.239, 110.16058, 1165.7314, 38.008057, 1008.13776, -74.32788, 868.3207, -101.946106, 640, 46, 459.39636, 104.464294, 328, 46, 173.37585, -37.941406, 0, 0, 0, 0, -58.007813, 22.60559, -110.22351, 26.782837, -294.02277, -63.0282, -438.13812, -175.81409, -624.026, -255.18188, -878.8386, -165.37097, -834.9774, 358.87476, -494.53107, 363.052)
+
+[node name="ImpactSound" type="AudioStreamPlayer2D" parent="." unique_id=1928374650]
+max_polyphony = 4

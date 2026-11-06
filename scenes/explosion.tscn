@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b6a8ejrmojvyx"]
+
+[ext_resource type="Script" uid="uid://cpxucv2slx0sk" path="res://scripts/explosion.gd" id="1_17npe"]
+[ext_resource type="AudioStream" uid="uid://bwaokkaqqv7r" path="res://assets/sounds/explosion.wav" id="2_nfeox"]
+
+[sub_resource type="Gradient" id="Gradient_soft"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_soft"]
+gradient = SubResource("Gradient_soft")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_fire"]
+offsets = PackedFloat32Array(0, 0.3, 0.65, 1)
+colors = PackedColorArray(1, 0.9, 0.35, 1, 1, 0.5, 0.08, 1, 0.45, 0.14, 0.05, 0.55, 0.15, 0.12, 0.1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fire"]
+gradient = SubResource("Gradient_fire")
+
+[sub_resource type="Curve" id="Curve_shrink"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_shrink"]
+curve = SubResource("Curve_shrink")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fire"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 14.0
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 240.0
+gravity = Vector3(0, -40, 0)
+damping_min = 90.0
+damping_max = 170.0
+scale_min = 0.7
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_shrink")
+color_ramp = SubResource("GradientTexture1D_fire")
+
+[sub_resource type="Gradient" id="Gradient_chunk"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_chunk"]
+gradient = SubResource("Gradient_chunk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_dirt"]
+offsets = PackedFloat32Array(0, 0.7, 1)
+colors = PackedColorArray(0.5, 0.3, 0.08, 1, 0.38, 0.22, 0.05, 1, 0.3, 0.17, 0.04, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dirt"]
+gradient = SubResource("Gradient_dirt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_debris"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 220.0
+initial_velocity_max = 480.0
+gravity = Vector3(0, 980, 0)
+scale_min = 0.12
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_dirt")
+
+[node name="Explosion" type="Node2D" unique_id=1719242695]
+z_index = 10
+script = ExtResource("1_17npe")
+
+[node name="Fire" type="GPUParticles2D" parent="." unique_id=1206146483]
+emitting = false
+amount = 30
+texture = SubResource("GradientTexture2D_soft")
+lifetime = 0.55
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fire")
+
+[node name="Debris" type="GPUParticles2D" parent="." unique_id=2059887420]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_chunk")
+lifetime = 0.9
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_debris")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=557123]
+stream = ExtResource("2_nfeox")
+max_polyphony = 10

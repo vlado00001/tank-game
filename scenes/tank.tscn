@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://e47knsmxnt0g"]
+
+[ext_resource type="Script" uid="uid://cexi5pfba3qi4" path="res://scripts/tank.gd" id="1_qrxud"]
+[ext_resource type="Texture2D" uid="uid://q3ksb1m5rk48" path="res://assets/images/Tank1.png" id="2_01nm4"]
+[ext_resource type="Texture2D" uid="uid://dkguhnxp05up8" path="res://assets/images/Tank2-sheet.png" id="2_c4xvs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ypoqj"]
+radius = 27.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01nm4"]
+atlas = ExtResource("2_c4xvs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4vtj"]
+atlas = ExtResource("2_c4xvs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4xvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01nm4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4vtj")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="Tank_CharacterBody2D" type="CharacterBody2D" unique_id=15485726 groups=["Tank"]]
+script = ExtResource("1_qrxud")
+
+[node name="Cannon_Sprite2D" type="Sprite2D" parent="." unique_id=387810118]
+z_index = 5
+texture = ExtResource("2_01nm4")
+
+[node name="Line2D" type="Line2D" parent="Cannon_Sprite2D" unique_id=1400894382]
+width = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108947551]
+shape = SubResource("CapsuleShape2D_ypoqj")
+
+[node name="Body_AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=439898709]
+sprite_frames = SubResource("SpriteFrames_c4xvs")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.15442468
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1065961514]

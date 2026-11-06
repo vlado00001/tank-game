@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://7mqm1k26ebcp"]
+
+[ext_resource type="PackedScene" uid="uid://e47knsmxnt0g" path="res://scenes/tank.tscn" id="1_olmbx"]
+[ext_resource type="PackedScene" uid="uid://b686g3gx3dltj" path="res://scenes/ground.tscn" id="2_ypoqj"]
+[ext_resource type="PackedScene" uid="uid://dekcs45b1g1ol" path="res://scenes/spawner.tscn" id="3_w3gk0"]
+[ext_resource type="Texture2D" uid="uid://nnbn5qfue6hv" path="res://assets/images/background.jpg" id="4_1vg6f"]
+[ext_resource type="PackedScene" uid="uid://bu7g1eh0na1nd" path="res://scenes/death_zone.tscn" id="5_ssdv0"]
+
+[node name="LevelRoot" type="Node2D" unique_id=1288189932]
+
+[node name="Tank_CharacterBody2D" parent="." unique_id=15485726 instance=ExtResource("1_olmbx")]
+position = Vector2(0, -35)
+
+[node name="Ground_StaticBody" parent="." unique_id=515524034 instance=ExtResource("2_ypoqj")]
+modulate = Color(0.8333687, 1.0152512, 0.6176477, 1)
+position = Vector2(-1239, 98)
+
+[node name="Spawner" parent="." unique_id=648354157 instance=ExtResource("3_w3gk0")]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=272833958]
+z_index = -10
+position = Vector2(0, -404)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_1vg6f")
+
+[node name="DeathZone" parent="." unique_id=101122394 instance=ExtResource("5_ssdv0")]
+position = Vector2(0, 818)
